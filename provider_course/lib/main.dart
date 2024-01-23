@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_course/home_screen.dart';
 import 'package:provider_course/provider/count_provider.dart';
+import 'package:provider_course/provider/example_one_provider.dart';
 import 'package:provider_course/screens/count_example.dart';
+import 'package:provider_course/screens/example_one.dart';
 import 'package:provider_course/stateful_widget_screen.dart';
 import 'package:provider_course/why_provider.dart';
 
@@ -18,15 +20,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print('build');
 
-    return ChangeNotifierProvider(
-      create: (_) => CountPRovider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>CountPRovider()),
+        ChangeNotifierProvider(create: (_)=>ExampleOneProvider()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: CountExapmle(),
+        home: ExampleOneScreen(),
       ),
     );
   }
