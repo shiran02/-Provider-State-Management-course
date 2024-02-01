@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:provider_course/home_screen.dart';
 import 'package:provider_course/provider/count_provider.dart';
 import 'package:provider_course/provider/example_one_provider.dart';
+import 'package:provider_course/provider/faviurite+provider.dart';
 import 'package:provider_course/screens/count_example.dart';
 import 'package:provider_course/screens/example_one.dart';
+import 'package:provider_course/screens/favourite/favourite_screen.dart';
 import 'package:provider_course/stateful_widget_screen.dart';
 import 'package:provider_course/why_provider.dart';
 
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_)=>CountPRovider()),
         ChangeNotifierProvider(create: (_)=>ExampleOneProvider()),
+        ChangeNotifierProvider(create: (_)=>FavouriteItemProvider()),
+        
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: ExampleOneScreen(),
+        home: FavouriteScreen(),
       ),
     );
   }
